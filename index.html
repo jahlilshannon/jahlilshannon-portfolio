@@ -8,6 +8,12 @@
 <meta property="og:title" content="Jahlil Shannon">
 <meta property="og:description" content="I run delivery for a 100+ person release train, and I build the AI tooling it runs on.">
 <meta property="og:type" content="profile">
+<meta property="og:url" content="https://jahlilshannon.netlify.app/">
+<meta property="og:image" content="https://jahlilshannon.netlify.app/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/headshot.jpg">
 <style>
   :root {
     color-scheme: light;
@@ -52,7 +58,32 @@
   .btn-ghost:hover { background:var(--card-2); }
   @media (max-width:700px){ .topnav .hide-sm { display:none; } }
 
-  .hero { padding:76px 0 20px; }
+  .hero { padding:64px 0 20px; }
+  .hero-grid { display:grid; grid-template-columns:1fr 200px; gap:40px; align-items:center; }
+  .headshot { width:200px; height:200px; border-radius:50%; object-fit:cover; border:1px solid var(--line-2); }
+  .hero-cta { margin-top:4px; }
+  @media (max-width:700px){
+    .hero { padding:28px 0 12px; }
+    .hero-grid { grid-template-columns:1fr; gap:16px; }
+    .headshot { order:-1; width:88px; height:88px; }
+    .claim { font-size:1.6rem; }
+    .stats { margin-top:24px; }
+  }
+  .shot { display:block; margin:16px 0 4px; border:1px solid var(--line); border-radius:9px; overflow:hidden; }
+  .shot img { display:block; width:100%; height:auto; }
+  .viz { margin:16px 0 0; padding:14px 16px; border:1px solid var(--line); border-radius:9px; background:var(--card-2); }
+  .viz svg { display:block; width:100%; height:auto; }
+  .viz figcaption { font-size:.75rem; color:var(--ink-3); margin-top:8px; }
+  .viz .t { fill:var(--ink); font:600 13px var(--sans); }
+  .viz .s { fill:var(--ink-3); font:12px var(--sans); }
+  .viz .box { fill:var(--card); stroke:var(--line-2); }
+  .viz .hub { fill:var(--accent-soft); stroke:var(--accent); }
+  .viz .ln { stroke:var(--line-2); stroke-width:1.5; fill:none; }
+  .viz .bar-old { fill:var(--line-2); }
+  .viz .bar-new { fill:var(--accent); }
+  .rec { margin:28px 0; padding:18px 22px; border-left:3px solid var(--accent); background:var(--card); border-radius:0 8px 8px 0; max-width:68ch; }
+  .rec p { margin:0 0 8px; font-size:1.05rem; color:var(--ink); }
+  .rec cite { font-style:normal; font-size:.85rem; color:var(--ink-3); }
   .kicker { font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-3); font-weight:600; margin-bottom:14px; }
   .claim { font-size:1.9rem; font-weight:600; line-height:1.28; letter-spacing:-.02em; max-width:20ch; margin:0 0 22px; }
   .claim em { font-style:normal; color:var(--accent); }
@@ -98,6 +129,9 @@
     background:var(--card); border-radius:0 8px 8px 0; color:var(--ink-2); font-size:.97rem; }
   .pov blockquote p:last-child { margin:0; }
 
+  .holds { max-width:68ch; padding-left:1.1em; margin:0 0 1.4em; color:var(--ink-2); }
+  .holds li { margin-bottom:.8em; }
+  .holds strong { color:var(--ink); font-weight:600; }
   .certs { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 0; }
   .cert { font-size:.85rem; border:1px solid var(--line-2); border-radius:7px; padding:5px 11px; color:var(--ink-2); background:var(--card); }
 
@@ -113,7 +147,7 @@
     <nav class="topnav">
       <a href="#work">Work</a>
       <a href="#approach" class="hide-sm">Approach</a>
-      <a href="#background" class="hide-sm">Background</a>
+      <a href="#about" class="hide-sm">About</a>
       <a href="#contact">Contact</a>
       <button class="btn-ghost" id="themeBtn" aria-label="Toggle colour theme">Dark</button>
     </nav>
@@ -123,16 +157,19 @@
 <main>
 
 <div class="wrap hero">
+  <div class="hero-grid">
+  <div>
   <p class="kicker">Technical Program Management · AI Delivery Platform · Enterprise SaaS</p>
-  <h1 class="claim">I run the release train, and I build the tooling it <em>runs on</em>.</h1>
-  <p class="sub">Principal Program Manager at Blackbaud. Primary backup to the Release Train Engineer for one of the company’s largest Agile Release Trains, 16 teams and 100+ people. Delivery lead for five of those engineering teams, owning the cycle from requirements through CI/CD and continuous deployment into production, plus the weekly release-readiness gate across all 16. I also build and govern the AI delivery tooling that train depends on. Nine years in technical program leadership, six in enterprise customer success before that.</p>
-  <p class="sub">Most program managers do one of those. I do both, and the second one ships through reviewed pull requests.</p>
-  <p class="meta">Las Vegas, NV · Remote, open to monthly onsite · Eastern Time availability<br>
-    <a href="mailto:jahlil.shannon@gmail.com">jahlil.shannon@gmail.com</a> ·
-    <a href="https://www.linkedin.com/in/jahlil-shannon">LinkedIn</a> ·
-    <a href="https://github.com/jahlilshannon">GitHub</a> ·
-    <a href="https://www.credly.com/users/jahlil-shannon">Credly</a>
-  </p>
+  <h1 class="claim">I run delivery on the release train, and I build the tooling it <em>runs on</em>.</h1>
+  <p class="sub">Principal Program Manager at Blackbaud and primary backup to the Release Train Engineer for a 16-team, 100+ person release train. I own delivery for five of its teams, and I build the AI tooling the whole train runs on, shipped through reviewed pull requests like any production code.</p>
+  <div class="links hero-cta">
+    <a class="lbtn primary" href="assets/Jahlil_Shannon_Resume.pdf" download>Download resume (PDF)</a>
+    <a class="lbtn" href="#work">See the work</a>
+    <a class="lbtn" href="https://www.linkedin.com/in/jahlil-shannon">LinkedIn</a>
+  </div>
+  </div>
+  <img class="headshot" src="assets/headshot.jpg" alt="Jahlil Shannon" width="200" height="200">
+  </div>
 
   <div class="stats">
     <div class="stat"><div class="stat-n">30-60 min → &lt;5</div><div class="stat-l">Manual sprint prep per team, per iteration</div></div>
@@ -140,6 +177,11 @@
     <div class="stat"><div class="stat-n">~900</div><div class="stat-l">Automated tests behind it, every change through code review</div></div>
     <div class="stat"><div class="stat-n">16</div><div class="stat-l">Teams in the weekly release-readiness gate</div></div>
   </div>
+  <p class="meta">Las Vegas, NV · Remote, open to monthly onsite · Eastern Time availability ·
+    <a href="mailto:jahlil.shannon@gmail.com">jahlil.shannon@gmail.com</a> ·
+    <a href="https://github.com/jahlilshannon">GitHub</a> ·
+    <a href="https://www.credly.com/users/jahlil-shannon">Credly</a>
+  </p>
 </div>
 
 <section id="work">
@@ -159,6 +201,7 @@
         <dt>Solution</dt><dd>A seventeen-dimension questionnaire with a swappable domain profile that defines what severe means <strong>before</strong> any feature is assessed. Every finding is tagged stated, derived, or unknown. Output is a recommendation with conditions attached, not a verdict.</dd>
         <dt>Outcome</dt><dd>Run two features from the same company through it and it returns opposite answers, which is the only real proof a risk tool discriminates. Mapped to NIST AI RMF, ISO/IEC 42001 and 23894, the OECD classification framework, and the EU AI Act.</dd>
       </dl>
+      <a class="shot" href="https://ai-feature-risk-triage.netlify.app/"><img src="assets/risk-triage.jpg" alt="The AI Feature Risk Triage site: describe a proposed AI feature and get an evidence-tagged assessment" width="1280" height="800" loading="lazy"></a>
       <div class="links">
         <a class="lbtn primary" href="https://ai-feature-risk-triage.netlify.app/">Try the assessment</a>
         <a class="lbtn" href="https://github.com/jahlilshannon/ai-feature-risk-triage">Read the source</a>
@@ -177,6 +220,18 @@
         <dt>Solution</dt><dd>Two agent skills over a shared skills taxonomy held consistent across teams and platforms. An expertise-profiling skill runs monthly across the release train; a per-feature progress-to-target tracker runs every iteration on automated workflows.</dd>
         <dt>Outcome</dt><dd><strong>Per-team prep cut from 30-60 minutes to under five.</strong> Engineering managers got an evidence-based view of expertise, coverage risk, and knowledge gaps where none previously existed.</dd>
       </dl>
+      <figure class="viz" style="margin-left:0;margin-right:0;">
+        <svg viewBox="0 0 380 84" role="img" aria-label="Sprint prep per team: 30 to 60 minutes before, under 5 minutes after" style="max-width:520px;">
+          <text class="s" x="0" y="23">Before</text>
+          <rect class="bar-old" x="52" y="10" width="160" height="18" rx="3"/>
+          <rect class="bar-old" x="212" y="10" width="90" height="18" rx="3" opacity=".45"/>
+          <text class="t" x="380" y="24" text-anchor="end" style="fill:var(--ink-2)">30-60 min</text>
+          <text class="s" x="0" y="65">After</text>
+          <rect class="bar-new" x="52" y="52" width="20" height="18" rx="3"/>
+          <text class="t" x="80" y="66">under 5 min</text>
+        </svg>
+        <figcaption>Manual sprint prep per team, per iteration. Illustrative scale.</figcaption>
+      </figure>
       <p class="stack">LLM agent skills · Azure DevOps and GitHub MCP servers · GitHub Actions CI/CD · Structured skills taxonomy</p>
     </article>
 
@@ -191,18 +246,37 @@
         <dt>Solution</dt><dd>One front door: an Angular and .NET app on live Azure DevOps data with a daily refresh, built with Claude Code under full code review. It began as an agent skill generating delivery timelines and grew into the platform the train plans from.</dd>
         <dt>Outcome</dt><dd><strong>Live within a week of starting the build</strong>, with 60 merged pull requests and about 900 automated tests behind it, on a modest AI budget. The business case keeps measured and modeled figures separate, and the platform pays for itself if it handles a small fraction of planning questions.</dd>
       </dl>
+      <figure class="viz" style="margin-left:0;margin-right:0;">
+        <svg viewBox="0 0 380 170" role="img" aria-label="Five-plus scattered planning sources consolidated into one planning platform used by 100+ people" style="max-width:560px;">
+          <text class="s" x="0" y="14">Before: five-plus sources</text>
+          <rect class="box" x="0" y="26" width="110" height="22" rx="4"/><text class="s" x="8" y="41">Tracker queries</text>
+          <rect class="box" x="0" y="54" width="110" height="22" rx="4"/><text class="s" x="8" y="69">Spreadsheets</text>
+          <rect class="box" x="0" y="82" width="110" height="22" rx="4"/><text class="s" x="8" y="97">Wiki pages</text>
+          <rect class="box" x="0" y="110" width="110" height="22" rx="4"/><text class="s" x="8" y="125">Slide decks</text>
+          <rect class="box" x="0" y="138" width="110" height="22" rx="4"/><text class="s" x="8" y="153">Meetings</text>
+          <path class="ln" d="M110 37 C130 37 130 93 146 93 M110 65 C130 65 130 93 146 93 M110 93 L146 93 M110 121 C130 121 130 93 146 93 M110 149 C130 149 130 93 146 93"/>
+          <rect class="hub" x="146" y="64" width="114" height="58" rx="8"/>
+          <text class="t" x="203" y="89" text-anchor="middle">One front door</text>
+          <text class="s" x="203" y="106" text-anchor="middle">daily refresh</text>
+          <path class="ln" d="M260 93 L276 93"/>
+          <rect class="box" x="276" y="70" width="104" height="46" rx="6"/>
+          <text class="t" x="328" y="91" text-anchor="middle">100+ people</text>
+          <text class="s" x="328" y="107" text-anchor="middle">plan from it</text>
+        </svg>
+        <figcaption>Conceptual view. Generalized sources, no internal data.</figcaption>
+      </figure>
       <p class="stack">Angular · .NET · Azure DevOps API · Claude Code · GitHub Actions · Reviewed pull requests</p>
     </article>
 
     <article class="proj">
       <div class="proj-head">
-        <h3>AI Agent Team, Registry &amp; Governance</h3>
+        <h3>Small-Team Pilot, AI Agent Registry &amp; Governance</h3>
         <span class="pill prod">In production</span>
       </div>
-      <p class="proj-role">Founding team lead · Governance and risk communications owner</p>
+      <p class="proj-role">Co-lead with product · Registry builder</p>
       <dl>
         <dt>Problem</dt><dd>AI agents were multiplying across the company faster than anyone could see who was building what, and new agent work needed a path through governance rather than around it.</dd>
-        <dt>Solution</dt><dd>Stood up a new AI agent product team from nothing: backlog, board, repository and wiki, standups, and leadership updates. Built a registry of agents and automations across several AI platforms and custom bots, each with owner, platform, status and an overlap flag.</dd>
+        <dt>Solution</dt><dd>Hand-picked to co-lead, with product, a new small team of full-stack engineers using AI to deliver faster without giving up quality. Set up its backlog, board, repository and wiki, and ran its standups and leadership updates. Built a registry of agents and automations across several AI platforms and custom bots, each with owner, platform, status and an overlap flag.</dd>
         <dt>Outcome</dt><dd>Took the team’s AI risk assessment through the company’s AI governance review. Teams can now see what already exists before building something new, and new agent work has a defined path through governance.</dd>
       </dl>
       <p class="stack">AI governance · Agent lifecycle · Risk communications · Program stand-up</p>
@@ -252,13 +326,24 @@
   </div>
 </section>
 
-<section id="background">
+<section id="about">
   <div class="wrap">
-    <p class="eyebrow">Background</p>
-    <h2>Fifteen years in one organization, on both sides of the product</h2>
-    <p style="max-width:68ch;color:var(--ink-2);">Six years managing major institutional accounts came first, starting at Smart Tuition and continuing through its 2015 acquisition by Blackbaud: multi-school archdiocesan systems and large independents, running day-to-day operations and serving as the designated channel for product feedback to senior management. That work led directly into the technology organization in 2017. Requirements arrive with the operational context already attached because I spent six years being the person on the other end of them.</p>
+    <p class="eyebrow">About</p>
+    <h2>This year I stopped having one job</h2>
+    <p style="max-width:68ch;color:var(--ink-2);">I worked as a program manager for five engineering teams, a co-lead alongside product for a new small team of full-stack engineers using AI to deliver faster without giving up quality, a PMO lead teaching AI skills across a 90+ person organization, and, for the first time, an engineer with pull requests merged into a production app through required code review. I am not pretending to be a senior developer. The distance between “I run the team” and “I can do the work” got a lot shorter, and AI tooling is the reason.</p>
+    <p style="max-width:68ch;color:var(--ink-2);">I came to this work from the other side of the product. Fifteen years in one organization, and six years managing major institutional accounts came first, starting at Smart Tuition and continuing through its 2015 acquisition by Blackbaud: multi-school archdiocesan systems and large independents, running day-to-day operations and serving as the designated channel for product feedback to senior management. That work led directly into the technology organization in 2017. Requirements arrive with the operational context already attached because I spent six years being the person on the other end of them.</p>
     <p style="max-width:68ch;color:var(--ink-2);">Since then: Project Manager across payments and financial aid, owning the annual PCI compliance audit. Senior Project Manager, in practice program manager for up to five engineering teams, through year one of a global support delivery transformation, six concurrent workstreams and 40 vendor FTEs onboarded across a three-year outsourcing engagement, on-time go-live, a program template later reused for a third product, with the owning organization subsequently reporting significant cost savings. Principal Program Manager since 2025.</p>
-    <p style="max-width:68ch;color:var(--ink-2);">Fully remote since 2018, operating on Eastern Time from the Pacific time zone.</p>
+    <blockquote class="rec">
+      <p>“His work ethic is beyond reproach and his integrity is second to none.”</p>
+      <cite>Joe Williamson, who managed Jahlil directly · <a href="https://www.linkedin.com/in/jahlil-shannon/details/recommendations/">LinkedIn recommendation</a></cite>
+    </blockquote>
+    <h3 style="margin-top:32px;">Three things I have learned to hold to</h3>
+    <ul class="holds">
+      <li><strong>Write down what a number means before you publish it.</strong> A team’s quarterly count once looked doubled. It was not: the team worked in two areas that happened to close exactly the same number of stories. I was right, and I still could not prove it on the day, because I had never written down what my tracker counted. Now every metric I publish ships with its definition and the query behind it.</li>
+      <li><strong>Do not start a team before it can work.</strong> When I was asked to launch a second new team before it had confirmed people or an available product manager, I pushed back and helped define what a team needs before it starts. Standing it up quickly would have been easier. Waiting was the right call.</li>
+      <li><strong>Give scope back the same way you take it on.</strong> I once let a learning series I had started quietly lapse instead of making the call out loud. When I give up scope, I owe people the same conversation I had when I took it on.</li>
+    </ul>
+    <p style="max-width:68ch;color:var(--ink-2);">Outside work, I have been a Toastmasters member since 2023 and volunteer with Braven and Dads in School. Based in Las Vegas, fully remote since 2018, working Eastern Time from the Pacific time zone.</p>
     <div class="certs">
       <span class="cert">PMP</span>
       <span class="cert">PMI-ACP</span>
