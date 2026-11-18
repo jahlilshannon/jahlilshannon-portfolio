@@ -1,16 +1,27 @@
-# jahlilshannon.com
+# jahlilshannon.netlify.app
 
-Personal portfolio. One self-contained HTML file, no build step, no dependencies.
+Personal portfolio. One self-contained HTML file plus an `assets/` folder (photo, resume PDF, preview images). No build step, no dependencies.
 
 ## Editing
 
-Edit `index.html`, commit, push. Netlify deploys from `main` automatically.
+`main` is protected: every change goes through a pull request, and two checks must pass before it can merge.
 
 ```
-git add index.html
-git commit -m "Update <what changed>"
-git push
+git switch -c <short-description>
+# edit index.html
+git commit -am "Update <what changed>"
+git push -u origin <short-description>
+gh pr create --fill
 ```
+
+Then open the Netlify deploy preview linked on the PR, check it on a phone and a laptop, and merge. Netlify deploys `main` automatically.
+
+When you change the page, update the "Last updated" line in the footer.
+
+## Checks
+
+- **guardrails**: fails if a page contains an em-dash, a phone number, retired delivery counts, or expired certifications. Rules live in `.github/banned-patterns.txt`.
+- **links**: fails on broken local links, images or files.
 
 ## Why one file
 
