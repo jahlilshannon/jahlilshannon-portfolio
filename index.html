@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jahlil Shannon, AI Delivery Platform &amp; Technical Program Management</title>
+<meta name="description" content="Principal Program Manager running delivery for five engineering teams inside a 100+ person release train, and building the AI tooling that train runs on.">
+<meta property="og:title" content="Jahlil Shannon">
+<meta property="og:description" content="I run delivery for a 100+ person release train, and I build the AI tooling it runs on.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://jahlilshannon.netlify.app/">
+<meta property="og:image" content="https://jahlilshannon.netlify.app/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/headshot.jpg">
+<style>
+  :root {
+    color-scheme: light;
+    --page:#f4f3ef; --card:#fcfcfb; --card-2:#efeee9;
+    --ink:#0b0b0b; --ink-2:#52514e; --ink-3:#6f6e69;
+    --line:#e2e0da; --line-2:#cfcdc5;
+    --accent:#2a78d6; --accent-soft:#e8f0fc;
+    --good:#0ca30c; --warning:#fab219;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page:#121211; --card:#1a1a19; --card-2:#232322;
+    --ink:#ffffff; --ink-2:#c3c2b7; --ink-3:#94938a;
+    --line:#2e2e2b; --line-2:#3d3d39;
+    --accent:#3987e5; --accent-soft:#17273c;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    margin:0; background:var(--page); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:880px; margin:0 auto; padding:0 24px; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  h1,h2,h3 { line-height:1.2; letter-spacing:-0.02em; margin:0 0 .5em; }
+  h1 { font-size:2.5rem; font-weight:650; }
+  h2 { font-size:1.55rem; font-weight:600; }
+  h3 { font-size:1.1rem; font-weight:600; }
+  p { margin:0 0 1.1em; }
+
+  header.top { border-bottom:1px solid var(--line); background:var(--card); position:sticky; top:0; z-index:50; }
+  .topbar { display:flex; align-items:center; gap:16px; height:54px; }
+  .brand { font-weight:650; font-size:.95rem; letter-spacing:-.01em; }
+  .topnav { margin-left:auto; display:flex; gap:18px; align-items:center; font-size:.86rem; }
+  .topnav a { color:var(--ink-2); }
+  .btn-ghost { border:1px solid var(--line-2); background:transparent; color:var(--ink-2);
+    border-radius:7px; padding:5px 10px; font:inherit; font-size:.8rem; cursor:pointer; }
+  .btn-ghost:hover { background:var(--card-2); }
+  @media (max-width:700px){ .topnav .hide-sm { display:none; } }
+
+  .hero { padding:64px 0 20px; }
+  .hero-grid { display:grid; grid-template-columns:1fr 200px; gap:40px; align-items:center; }
+  .headshot { width:200px; height:200px; border-radius:50%; object-fit:cover; border:1px solid var(--line-2); }
+  .hero-cta { margin-top:4px; }
+  @media (max-width:700px){
+    .hero { padding:28px 0 12px; }
+    .hero-grid { grid-template-columns:1fr; gap:16px; }
+    .headshot { order:-1; width:88px; height:88px; }
+    .claim { font-size:1.6rem; }
+    .stats { margin-top:24px; }
+  }
+  .shot { display:block; margin:16px 0 4px; border:1px solid var(--line); border-radius:9px; overflow:hidden; }
+  .shot img { display:block; width:100%; height:auto; }
+  .viz { margin:16px 0 0; padding:14px 16px; border:1px solid var(--line); border-radius:9px; background:var(--card-2); }
+  .viz svg { display:block; width:100%; height:auto; }
+  .viz figcaption { font-size:.75rem; color:var(--ink-3); margin-top:8px; }
+  .viz .t { fill:var(--ink); font:600 13px var(--sans); }
+  .viz .s { fill:var(--ink-3); font:12px var(--sans); }
+  .viz .box { fill:var(--card); stroke:var(--line-2); }
+  .viz .hub { fill:var(--accent-soft); stroke:var(--accent); }
+  .viz .ln { stroke:var(--line-2); stroke-width:1.5; fill:none; }
+  .viz .bar-old { fill:var(--line-2); }
+  .viz .bar-new { fill:var(--accent); }
+  .rec { margin:28px 0; padding:18px 22px; border-left:3px solid var(--accent); background:var(--card); border-radius:0 8px 8px 0; max-width:68ch; }
+  .rec p { margin:0 0 8px; font-size:1.05rem; color:var(--ink); }
+  .rec cite { font-style:normal; font-size:.85rem; color:var(--ink-3); }
+  .kicker { font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-3); font-weight:600; margin-bottom:14px; }
+  .claim { font-size:1.9rem; font-weight:600; line-height:1.28; letter-spacing:-.02em; max-width:20ch; margin:0 0 22px; }
+  .claim em { font-style:normal; color:var(--accent); }
+  .sub { font-size:1.08rem; color:var(--ink-2); max-width:64ch; }
+  .meta { font-size:.9rem; color:var(--ink-3); margin-top:24px; }
+  .meta a { color:var(--ink-2); }
+
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);
+    border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:40px 0 0; }
+  @media (max-width:760px){ .stats { grid-template-columns:1fr 1fr; } }
+  .stat { background:var(--card); padding:18px 16px; }
+  .stat-n { font-size:1.5rem; font-weight:650; letter-spacing:-.02em; line-height:1.1; }
+  .stat-l { font-size:.8rem; color:var(--ink-3); margin-top:5px; line-height:1.4; }
+
+  section { padding:56px 0; border-top:1px solid var(--line); }
+  .eyebrow { font-size:.75rem; text-transform:uppercase; letter-spacing:.09em; color:var(--ink-3); font-weight:600; margin-bottom:10px; }
+
+  .proj { border:1px solid var(--line); background:var(--card); border-radius:11px; padding:22px 24px; margin-bottom:16px; }
+  .proj.featured { border-color:var(--accent); }
+  .proj-head { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:4px; }
+  .proj h3 { margin:0; }
+  .pill { font-size:.7rem; text-transform:uppercase; letter-spacing:.07em; font-weight:600;
+    border-radius:20px; padding:3px 9px; border:1px solid; }
+  .pill.live { color:var(--good); border-color:var(--good); }
+  .pill.prod { color:var(--accent); border-color:var(--accent); }
+  .pill.build { color:var(--warning); border-color:var(--warning); }
+  .proj-role { font-size:.85rem; color:var(--ink-3); margin-bottom:14px; }
+  .proj dl { margin:0; display:grid; grid-template-columns:88px 1fr; gap:8px 14px; font-size:.94rem; }
+  @media (max-width:620px){ .proj dl { grid-template-columns:1fr; gap:2px 0; } .proj dt { margin-top:10px; } }
+  .proj dt { font-size:.76rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-3); font-weight:600; padding-top:3px; }
+  .proj dd { margin:0; color:var(--ink-2); }
+  .proj dd strong { color:var(--ink); font-weight:600; }
+  .stack { font-family:var(--mono); font-size:.8rem; color:var(--ink-3); margin-top:16px;
+    padding-top:14px; border-top:1px solid var(--line); }
+  .links { margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; }
+  .lbtn { font-size:.85rem; border:1px solid var(--line-2); border-radius:7px; padding:6px 12px; color:var(--ink); }
+  .lbtn:hover { border-color:var(--accent); color:var(--accent); text-decoration:none; }
+  .lbtn.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .lbtn.primary:hover { opacity:.9; color:#fff; }
+
+  .pov p { max-width:68ch; }
+  .pov blockquote { margin:24px 0; padding:16px 20px; border-left:3px solid var(--accent);
+    background:var(--card); border-radius:0 8px 8px 0; color:var(--ink-2); font-size:.97rem; }
+  .pov blockquote p:last-child { margin:0; }
+
+  .holds { max-width:68ch; padding-left:1.1em; margin:0 0 1.4em; color:var(--ink-2); }
+  .holds li { margin-bottom:.8em; }
+  .holds strong { color:var(--ink); font-weight:600; }
+  .certs { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 0; }
+  .cert { font-size:.85rem; border:1px solid var(--line-2); border-radius:7px; padding:5px 11px; color:var(--ink-2); background:var(--card); }
+
+  footer { border-top:1px solid var(--line); padding:34px 0 56px; color:var(--ink-3); font-size:.87rem; }
+  footer p { max-width:70ch; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap topbar">
+    <span class="brand">Jahlil Shannon</span>
+    <nav class="topnav">
+      <a href="#work">Work</a>
+      <a href="#approach" class="hide-sm">Approach</a>
+      <a href="#about" class="hide-sm">About</a>
+      <a href="#contact">Contact</a>
+      <button class="btn-ghost" id="themeBtn" aria-label="Toggle colour theme">Dark</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="wrap hero">
+  <div class="hero-grid">
+  <div>
+  <p class="kicker">Technical Program Management · AI Delivery Platform · Enterprise SaaS</p>
+  <h1 class="claim">I run delivery on the release train, and I build the tooling it <em>runs on</em>.</h1>
+  <p class="sub">Principal Program Manager at Blackbaud and primary backup to the Release Train Engineer for a 16-team, 100+ person release train. I own delivery for five of its teams, and I build the AI tooling the whole train runs on, shipped through reviewed pull requests like any production code.</p>
+  <div class="links hero-cta">
+    <a class="lbtn primary" href="assets/Jahlil_Shannon_Resume.pdf" download>Download resume (PDF)</a>
+    <a class="lbtn" href="#work">See the work</a>
+    <a class="lbtn" href="https://www.linkedin.com/in/jahlil-shannon">LinkedIn</a>
+  </div>
+  </div>
+  <img class="headshot" src="assets/headshot.jpg" alt="Jahlil Shannon" width="200" height="200">
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-n">30-60 min → &lt;5</div><div class="stat-l">Manual sprint prep per team, per iteration</div></div>
+    <div class="stat"><div class="stat-n">4 weeks</div><div class="stat-l">From first build to a live planning platform for 100+ people</div></div>
+    <div class="stat"><div class="stat-n">~900</div><div class="stat-l">Automated tests behind it, every change through code review</div></div>
+    <div class="stat"><div class="stat-n">16</div><div class="stat-l">Teams in the weekly release-readiness gate</div></div>
+  </div>
+  <p class="meta">Las Vegas, NV · Remote, open to monthly onsite · Eastern Time availability ·
+    <a href="mailto:jahlil.shannon@gmail.com">jahlil.shannon@gmail.com</a> ·
+    <a href="https://github.com/jahlilshannon">GitHub</a> ·
+    <a href="https://www.credly.com/users/jahlil-shannon">Credly</a>
+  </p>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <p class="eyebrow">Selected work</p>
+    <h2>Six things I designed, built, and operated</h2>
+    <p style="max-width:66ch;color:var(--ink-2);">The first one you can open and use right now. The rest run inside a production environment I can walk you through.</p>
+
+    <article class="proj featured">
+      <div class="proj-head">
+        <h3>AI Feature Risk Triage</h3>
+        <span class="pill live">Live, open source</span>
+      </div>
+      <p class="proj-role">Author · Early release, August 2026 · Public reference framework</p>
+      <dl>
+        <dt>Problem</dt><dd>Most AI risk questionnaires produce the same report for every feature. Severity gets asserted rather than derived, and the assessment inherits whatever the submitter claimed.</dd>
+        <dt>Solution</dt><dd>A seventeen-dimension questionnaire with a swappable domain profile that defines what severe means <strong>before</strong> any feature is assessed. Every finding is tagged stated, derived, or unknown. Output is a recommendation with conditions attached, not a verdict.</dd>
+        <dt>Outcome</dt><dd>Run two features from the same company through it and it returns opposite answers, which is the only real proof a risk tool discriminates. Mapped to NIST AI RMF, ISO/IEC 42001 and 23894, the OECD classification framework, and the EU AI Act.</dd>
+      </dl>
+      <a class="shot" href="https://ai-feature-risk-triage.netlify.app/"><img src="assets/risk-triage.jpg" alt="The AI Feature Risk Triage site: describe a proposed AI feature and get an evidence-tagged assessment" width="1280" height="800" loading="lazy"></a>
+      <div class="links">
+        <a class="lbtn primary" href="https://ai-feature-risk-triage.netlify.app/">Try the assessment</a>
+        <a class="lbtn" href="https://github.com/jahlilshannon/ai-feature-risk-triage">Read the source</a>
+      </div>
+      <p class="stack">Questionnaire and scoring as data · Client-side assessment tool · Installable agent skill · MIT licensed</p>
+    </article>
+
+    <article class="proj">
+      <div class="proj-head">
+        <h3>Engineering Skill Matrix &amp; Feature Progress Tracker</h3>
+        <span class="pill prod">In production</span>
+      </div>
+      <p class="proj-role">Designer and builder · Running across the release train</p>
+      <dl>
+        <dt>Problem</dt><dd>Cross-team capability visibility took 30 to 60 minutes of manual preparation per team, per sprint, and expertise coverage risk was invisible entirely.</dd>
+        <dt>Solution</dt><dd>Two agent skills over a shared skills taxonomy held consistent across teams and platforms. An expertise-profiling skill runs across the release train as needed; a per-feature progress-to-target tracker runs every iteration on automated workflows.</dd>
+        <dt>Outcome</dt><dd><strong>Per-team prep cut from 30-60 minutes to under five.</strong> Engineering managers got an evidence-based view of expertise, coverage risk, and knowledge gaps where none previously existed.</dd>
+      </dl>
+      <figure class="viz" style="margin-left:0;margin-right:0;">
+        <svg viewBox="0 0 380 84" role="img" aria-label="Sprint prep per team: 30 to 60 minutes before, under 5 minutes after" style="max-width:520px;">
+          <text class="s" x="0" y="23">Before</text>
+          <rect class="bar-old" x="52" y="10" width="160" height="18" rx="3"/>
+          <rect class="bar-old" x="212" y="10" width="90" height="18" rx="3" opacity=".45"/>
+          <text class="t" x="380" y="24" text-anchor="end" style="fill:var(--ink-2)">30-60 min</text>
+          <text class="s" x="0" y="65">After</text>
+          <rect class="bar-new" x="52" y="52" width="20" height="18" rx="3"/>
+          <text class="t" x="80" y="66">under 5 min</text>
+        </svg>
+        <figcaption>Manual sprint prep per team, per iteration. Illustrative scale.</figcaption>
+      </figure>
+      <p class="stack">LLM agent skills · Azure DevOps and GitHub MCP servers · GitHub Actions CI/CD · Structured skills taxonomy</p>
+    </article>
+
+    <article class="proj">
+      <div class="proj-head">
+        <h3>Release Train Planning Platform</h3>
+        <span class="pill live">Live since Nov 2026</span>
+      </div>
+      <p class="proj-role">Designer, builder, and operator · Shipped through reviewed pull requests</p>
+      <dl>
+        <dt>Problem</dt><dd>Planning answers for a 100+ person release train were scattered across five-plus sources of record, so every question cost someone a search, a spreadsheet, or a meeting.</dd>
+        <dt>Solution</dt><dd>One front door: an Angular and .NET app on live Azure DevOps data, refreshed throughout the day, built with Claude Code under full code review. It began as an agent skill generating delivery timelines and grew into the platform the train plans from.</dd>
+        <dt>Outcome</dt><dd><strong>Live four weeks after starting the build</strong>, with 60 merged pull requests and about 900 automated tests behind it, on a modest AI budget. The business case keeps measured and modeled figures separate, and the platform pays for itself if it handles a small fraction of planning questions. Since launch in November 2026, people across the train have used it every week.</dd>
+      </dl>
+      <figure class="viz" style="margin-left:0;margin-right:0;">
+        <svg viewBox="0 0 380 170" role="img" aria-label="Five-plus scattered planning sources consolidated into one planning platform used by 100+ people" style="max-width:560px;">
+          <text class="s" x="0" y="14">Before: five-plus sources</text>
+          <rect class="box" x="0" y="26" width="110" height="22" rx="4"/><text class="s" x="8" y="41">Tracker queries</text>
+          <rect class="box" x="0" y="54" width="110" height="22" rx="4"/><text class="s" x="8" y="69">Spreadsheets</text>
+          <rect class="box" x="0" y="82" width="110" height="22" rx="4"/><text class="s" x="8" y="97">Wiki pages</text>
+          <rect class="box" x="0" y="110" width="110" height="22" rx="4"/><text class="s" x="8" y="125">Slide decks</text>
+          <rect class="box" x="0" y="138" width="110" height="22" rx="4"/><text class="s" x="8" y="153">Meetings</text>
+          <path class="ln" d="M110 37 C130 37 130 93 146 93 M110 65 C130 65 130 93 146 93 M110 93 L146 93 M110 121 C130 121 130 93 146 93 M110 149 C130 149 130 93 146 93"/>
+          <rect class="hub" x="146" y="64" width="114" height="58" rx="8"/>
+          <text class="t" x="203" y="89" text-anchor="middle">One front door</text>
+          <text class="s" x="203" y="106" text-anchor="middle">live data</text>
+          <path class="ln" d="M260 93 L276 93"/>
+          <rect class="box" x="276" y="70" width="104" height="46" rx="6"/>
+          <text class="t" x="328" y="91" text-anchor="middle">100+ people</text>
+          <text class="s" x="328" y="107" text-anchor="middle">plan from it</text>
+        </svg>
+        <figcaption>Conceptual view. Generalized sources, no internal data.</figcaption>
+      </figure>
+      <p class="stack">Angular · .NET · Azure DevOps API · Claude Code · GitHub Actions · Reviewed pull requests</p>
+    </article>
+
+    <article class="proj">
+      <div class="proj-head">
+        <h3>Small-Team Pilot, AI Agent Registry &amp; Governance</h3>
+        <span class="pill prod">Active</span>
+      </div>
+      <p class="proj-role">Co-lead with product · Registry builder</p>
+      <dl>
+        <dt>Problem</dt><dd>AI agents were multiplying across the company faster than anyone could see who was building what, and new agent work needed a path through governance rather than around it.</dd>
+        <dt>Solution</dt><dd>Hand-picked to co-lead, with product, a new small team of full-stack engineers using AI to deliver faster without giving up quality. Set up its backlog, board, repository and wiki, and ran its standups and leadership updates. Built a registry of agents and automations across several AI platforms and custom bots, each with owner, platform, status and an overlap flag, refreshed as needed.</dd>
+        <dt>Outcome</dt><dd>Took the team’s AI risk assessment through the company’s AI governance review. Teams can now see what already exists before building something new, and new agent work has a defined path through governance.</dd>
+      </dl>
+      <p class="stack">AI governance · Agent lifecycle · Risk communications · Program stand-up</p>
+    </article>
+
+    <article class="proj">
+      <div class="proj-head">
+        <h3>Commitment Tracker &amp; AI Skills Enablement</h3>
+        <span class="pill prod">In production</span>
+      </div>
+      <p class="proj-role">Builder and governance owner · AI skills workstream lead</p>
+      <dl>
+        <dt>Problem</dt><dd>Commitment tracking needed a single source of truth. A stakeholder demonstration surfaced data-governance blockers I had missed in discovery.</dd>
+        <dt>Solution</dt><dd>I stopped my own tool before launch and rebuilt it for resilience rather than shipping something fragile. In parallel, I lead the AI skills workstream, a working group inside the Enterprise PMO’s AI Community of Practice, and ran its bi-weekly build series with facilitator guides and hands-on curricula.</dd>
+        <dt>Outcome</dt><dd>The rebuilt tracker has run the release train’s sync since August 2026. The build series ran for seven sessions in 2026. <strong>Four colleagues have since built and shipped their own agent skills independently</strong>, and roughly 30 report applying skills I built to their own contexts. The model shifts the PMO from building for teams to teaching them.</dd>
+      </dl>
+      <p class="stack">LLM agent skill · AI governance practice · Enablement curriculum design</p>
+    </article>
+
+    <article class="proj">
+      <div class="proj-head">
+        <h3>PMO Recognition Program</h3>
+        <span class="pill prod">Fourth cycle</span>
+      </div>
+      <p class="proj-role">Founder and program owner</p>
+      <dl>
+        <dt>Problem</dt><dd>An 80+ person PMO had no formal recognition, with the engagement and retention consequences that implies.</dd>
+        <dt>Solution</dt><dd>Pitched the program to the Senior Leadership Team, secured executive approval a year ahead of the planned timeline along with dedicated funding, and built the operating hub.</dd>
+        <dt>Outcome</dt><dd>Launched to 80+ colleagues in 2023 and recognized by the PMO Senior Leadership Team as the program’s inaugural PMO Influencer of the Year, now serving a PMO of 90+ in its fourth cycle, and drawing interest from groups outside the PMO as a template other organizations can reuse.</dd>
+      </dl>
+      <p class="stack">Program design · Executive stakeholder management · SharePoint · Change management</p>
+    </article>
+  </div>
+</section>
+
+<section id="approach" class="pov">
+  <div class="wrap">
+    <p class="eyebrow">Approach</p>
+    <h2>The most useful thing I did in 2026 was cancel something I built</h2>
+    <p>A commitment-tracking tool I had designed and mostly finished went into a stakeholder demonstration and came out cancelled. The demo surfaced data-governance blockers I had missed in discovery. I rebuilt it instead of shipping it.</p>
+    <p>That is the part of this work I would want to be asked about in an interview, because building AI tooling inside an enterprise is not mostly a building problem. Getting a model to produce something useful is now the easy half. The hard half is knowing what should not ship, and being the person willing to say so about your own work when you are also the one who wants it to launch.</p>
+    <blockquote>
+      <p>Most AI risk questionnaires produce the same report for every feature. Severity gets asserted rather than derived, and once a rating is in a document it tends to stay there. A tool that flags everything is indistinguishable from a tool that flags nothing.</p>
+    </blockquote>
+    <p>The <a href="https://github.com/jahlilshannon/ai-feature-risk-triage">risk triage framework</a> is that instinct generalized: force a team to write down what severe means to them <em>before</em> a feature is on the table, separate what was stated from what was derived from what nobody checked, and make the tool capable of saying no with a specific path to yes.</p>
+    <p>Two other things I hold to. <strong>Portability over lock-in:</strong> I moved my full delivery tooling from one AI platform to another in two weeks, so the work never depends on a single tool. <strong>Teaching over building:</strong> the measure of the AI skills workstream is not what I shipped, it is that four colleagues shipped their own.</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow">About</p>
+    <h2>In 2026 I stopped having one job</h2>
+    <p style="max-width:68ch;color:var(--ink-2);">I worked as a program manager for five engineering teams, a co-lead alongside product for a new small team of full-stack engineers using AI to deliver faster without giving up quality, a PMO lead teaching AI skills across a 90+ person organization, and, for the first time, an engineer with pull requests merged into a production app through required code review. I am not pretending to be a senior developer. The distance between “I run the team” and “I can do the work” got a lot shorter, and AI tooling is the reason.</p>
+    <p style="max-width:68ch;color:var(--ink-2);">I came to this work from the other side of the product. Fifteen years in one organization, and six years managing major institutional accounts came first, starting at Smart Tuition and continuing through its 2015 acquisition by Blackbaud: multi-school archdiocesan systems and large independents, running day-to-day operations and serving as the designated channel for product feedback to senior management. That work led directly into the technology organization in 2017. Requirements arrive with the operational context already attached because I spent six years being the person on the other end of them.</p>
+    <p style="max-width:68ch;color:var(--ink-2);">Since then: Project Manager across payments and financial aid, owning the annual PCI compliance audit. Senior Project Manager, in practice program manager for up to five engineering teams, through year one of a global support delivery transformation, six concurrent workstreams and an on-time go-live, a program template later reused for a third product, with the owning organization subsequently reporting significant cost savings. Principal Program Manager since 2025.</p>
+    <blockquote class="rec">
+      <p>“His work ethic is beyond reproach and his integrity is second to none.”</p>
+      <cite>Joe Williamson, who managed Jahlil directly · <a href="https://www.linkedin.com/in/jahlil-shannon/details/recommendations/">LinkedIn recommendation</a></cite>
+    </blockquote>
+    <h3 style="margin-top:32px;">Three things I have learned to hold to</h3>
+    <ul class="holds">
+      <li><strong>Write down what a number means before you publish it.</strong> A team’s quarterly count once looked doubled. It was not: the team worked in two areas that happened to close exactly the same number of stories. I was right, and I still could not prove it on the day, because I had never written down what my tracker counted. Now every metric I publish ships with its definition and the query behind it.</li>
+      <li><strong>Do not start a team before it can work.</strong> When I was asked to launch a second new team before it had confirmed people or an available product manager, I pushed back and helped define what a team needs before it starts. Standing it up quickly would have been easier. Waiting was the right call.</li>
+      <li><strong>Give scope back the same way you take it on.</strong> I once let a learning series I had started quietly lapse instead of making the call out loud. When I give up scope, I owe people the same conversation I had when I took it on.</li>
+    </ul>
+    <p style="max-width:68ch;color:var(--ink-2);">Outside work, I have been a Toastmasters member since 2023 and volunteer with Braven and Dads in School. Based in Las Vegas, fully remote since 2018, working Eastern Time from the Pacific time zone.</p>
+    <div class="certs">
+      <span class="cert">PMP</span>
+      <span class="cert">PMI-ACP</span>
+      <span class="cert">Certified ScrumMaster</span>
+      <span class="cert">SAFe Advanced Scrum Master</span>
+      <span class="cert"><a href="https://www.credly.com/users/jahlil-shannon">Verify on Credly</a></span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2>Open to conversations</h2>
+    <p style="max-width:62ch;color:var(--ink-2);">Particularly about AI platform and enablement roles, technical program leadership, and anything where the job is both running delivery and building what delivery runs on.</p>
+    <div class="links">
+      <a class="lbtn primary" href="mailto:jahlil.shannon@gmail.com">Email me</a>
+      <a class="lbtn" href="https://www.linkedin.com/in/jahlil-shannon">LinkedIn</a>
+      <a class="lbtn" href="https://github.com/jahlilshannon">GitHub</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Representative examples. Proprietary data, team names, and internal metrics are generalized. Internal work is described rather than shown. The risk triage framework above is public and runnable now.</p>
+    <p style="margin:0;">Last updated November 2026 · © <span id="yr">2026</span> Jahlil Shannon</p>
+  </div>
+</footer>
+
+<script>
+  const themeBtn = document.getElementById("themeBtn");
+  function applyTheme(t){
+    document.documentElement.dataset.theme = t;
+    themeBtn.textContent = t === "dark" ? "Light" : "Dark";
+  }
+  themeBtn.addEventListener("click", () =>
+    applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
+  applyTheme(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+</script>
+</body>
+</html>
